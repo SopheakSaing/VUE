@@ -1,5 +1,9 @@
 <div id="app">
-  <h2> {{product}} are in Stock.</h2>
+  <ul>
+    <li v-for="product in products">
+      <h2> {{product}} are in Stock.</h2>
+    </li>
+  </ul>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -7,7 +11,11 @@
   const app = new Vue({
   el: '#app',
   data:{
-   product: 'Boots'
+   products: [
+    'Boots',
+    'Jacket',
+    'Hiking Socks'
+    ]
   }
   })
 </script>
