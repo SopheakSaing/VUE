@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue 3 Basics</title>
+    <style>
+        .box{
+            background-color: lightblue;
+            height: 200px;
+            width: 200px;
+        }
+        .box.two{
+            background-color: red;
+        }
+        .box.three{
+            background-color: blue;
+        }
+        [v-cloak]{
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="pheakApp">
+    <div id="App" v-cloak>
         {{greeting}}
         <input v-model="greeting"/>
+
+        <hr/>
+
+        <button v-on:click="isVisible = !isVisible">Show Box</button>
+        <div v-if="isVisible" class="box"></div>
     </div>
-    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script>
-        let pheakApp = Vue.createApp({
+        let App = Vue.createApp({
             data: function(){
                 return {
-                    greeting: 'Hello from parallel universe!'
+                    greeting: 'Hello from parallel universe!',
+                    isVisible: false,
+
                 }
             }
         })
-        pheakApp.mount('#pheakApp')
+        App.mount('#App')
     </script>
     
 </body>
