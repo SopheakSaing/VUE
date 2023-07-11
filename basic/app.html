@@ -24,11 +24,11 @@
 <body>
     <div id="App" v-cloak>
         {{greeting}}
-        <input v-model="greeting"/>
+        <input @keyup.enter="greet(greeting + '!!!!!!!')" v-model="greeting"/>
 
         <hr/>
 
-        <button v-on:click="isVisible = !isVisible">Show Box</button>
+        <button @click.right="toggleBox">Toggle Box</button>
         <div v-if="isVisible" class="box"></div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
@@ -40,6 +40,16 @@
                     isVisible: false,
 
                 }
+            },
+            methods:{
+                toggleBox(){
+                    this.isVisible = !this.isVisible;
+
+                },
+                greet(greeting){
+                    console.log(this.greeting)
+                }
+                
             }
         })
         App.mount('#App')
